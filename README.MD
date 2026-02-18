@@ -2,18 +2,19 @@ Self-contained scripts to generate a docker container with finn-plus installed u
 
 
 to build and start the container:
-git clone https://github.com/eki-project/finn-plus.git
-cp startup.sh finn-plus/
-cp run.sh finn-plus/
-./docker_start.sh
+``git clone https://github.com/eki-project/finn-plus.git``
+``cp startup.sh finn-plus/``
+``cp run.sh finn-plus/``
+``./docker_start.sh``
 
 inside the container:
+``poetry install``
 env variables setup:
-./startup.sh
+``./startup.sh``
 
 if using finn-examples:
-dvc pull
+``dvc pull``
 
 
 example run:
-./run.sh
+``./run.sh``
