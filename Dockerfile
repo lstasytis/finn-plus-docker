@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     unzip \
     zsh \
+    locales \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
@@ -58,6 +59,11 @@ COPY finn-plus/pyproject.toml finn-plus/poetry.lock* /workspace/
 # Install Python dependencies via Poetry
 # RUN poetry config virtualenvs.in-project true \
 #   && poetry install --no-root
+
+RUN sudo locale-gen en_US.UTF-8
+RUN sudo update-locale LANG=en_US.UTF-8
+ENV export LANG=en_US.UTF-8           
+ENV export LC_ALL=en_US.UTF-8
 
 RUN apt-get update && apt-get install -y pybind11-dev
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
