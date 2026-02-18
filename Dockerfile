@@ -56,14 +56,14 @@ WORKDIR /workspace
 COPY finn-plus/pyproject.toml finn-plus/poetry.lock* /workspace/
 
 # Install Python dependencies via Poetry
-RUN poetry config virtualenvs.in-project true \
-    && poetry install --no-root
+# RUN poetry config virtualenvs.in-project true \
+#   && poetry install --no-root
 
 RUN apt-get update && apt-get install -y pybind11-dev
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 ENV PATH="/workspace/.venv/bin:$PATH"
-poetry add --dev "pathspec==0.10.3"
-poetry add --dev "dvc[webdav]==3.59.1"
+RUN poetry add --dev "pathspec==0.10.3"
+RUN poetry add --dev "dvc[webdav]==3.59.1"
 
 # Optionally copy the full project (if you need source in container)
 
