@@ -16,6 +16,11 @@ inside the container:
 
 ``poetry install``
 
+``poetry add --dev "pathspec==0.10.3"``
+
+``poetry add --dev "dvc[webdav]==3.59.1"``
+
+
 env variables setup:
 
 ``./startup.sh``
